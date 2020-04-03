@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { GlobalContext } from '../context/GlobalState';
 
 const Select = styled.select`
   width: 6rem;
@@ -22,9 +23,22 @@ const Select = styled.select`
 `;
 
 const Dropdown = () => {
+  const { assendingForDeaths, descendingForDeaths } = useContext(GlobalContext)
+
+  const handleSelectChange = e => {
+    console.log(e.target.value)
+    if (e.target.value === "descending") {
+      descendingForDeaths();
+    } else {
+      assendingForDeaths();
+    }
+
+  }
   return (
-    <Select>
-      <option value="ascending">Ascending</option>
+    <Select
+      onChange={handleSelectChange}
+    >
+      <option value="ascending" selected="selected">Ascending</option>
       <option value="descending">Descending</option>
     </Select>
   )

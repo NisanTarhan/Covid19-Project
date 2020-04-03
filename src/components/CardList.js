@@ -13,7 +13,6 @@ const CardListLayout = styled.div`
 
 const CardList = () => {
     const { countriesData } = useContext(GlobalContext);
-    console.log(countriesData);
     return (
         <CardListLayout>
             {countriesData.map((country, index) =>

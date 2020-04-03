@@ -30,17 +30,33 @@ const initialState = {
             "iso2": "DE",
             "iso3": "DEU"
         }
-    ]
+    ].sort((a, b) => a["deaths"] - b["deaths"])
 }
 
 export const GlobalContext = createContext(initialState);
 
 export const GlobalProvider = ({ children }) => {
+
     const [state, dispatch] = useReducer(reducer, initialState);
+
+    //ACTIONS
+    function assendingForDeaths() {
+        dispatch({
+            type: "ASSENDING_DEATHS"
+        })
+    };
+
+    function descendingForDeaths() {
+        dispatch({
+            type: "DESCENDING_DEATHS"
+        })
+    };
 
     return (
         <GlobalContext.Provider value={{
-            countriesData: state.countriesData
+            countriesData: state.countriesData,
+            assendingForDeaths,
+            descendingForDeaths
         }}>
             {children}
         </GlobalContext.Provider>
