@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { GlobalContext } from '../context/GlobalState';
 import CountryCard from './CountryCard';
 
 const CardListLayout = styled.div`
@@ -11,10 +12,13 @@ const CardListLayout = styled.div`
 `
 
 const CardList = () => {
+    const { countriesData } = useContext(GlobalContext);
+    console.log(countriesData);
     return (
         <CardListLayout>
-            <CountryCard />
-
+            {countriesData.map((country, index) =>
+                <CountryCard key={index} dataOfCountry={country} />)
+            }
         </CardListLayout>
     )
 }

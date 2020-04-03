@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Header, Main, Footer } from './components'
+import { GlobalProvider } from './context/GlobalState';
 
 const AppLayout = styled.div`
   display: grid;
@@ -15,11 +16,14 @@ const AppLayout = styled.div`
 
 function App() {
   return (
-    <AppLayout>
-      <Header />
-      <Main />
-      <Footer />
-    </AppLayout>
+    <GlobalProvider>
+      <AppLayout>
+        <Header />
+        <Main />
+        <Footer />
+      </AppLayout>
+    </GlobalProvider>
+
   );
 }
 
