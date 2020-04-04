@@ -38,7 +38,7 @@ const Dropdown = () => {
     <Select
       onChange={handleSelectChange}
     >
-      <option value="ascending" selected="selected">Ascending</option>
+      <option value="ascending">Ascending</option>
       <option value="descending">Descending</option>
     </Select>
   )

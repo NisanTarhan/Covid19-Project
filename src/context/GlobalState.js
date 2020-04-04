@@ -1,48 +1,37 @@
-import React, { createContext, useReducer } from 'react';
+import React, { createContext, useReducer, useEffect } from 'react';
 import reducer from './reducer';
 
 const initialState = {
-    countriesData: [
-        {
-            "countryRegion": "Spain",
-            "confirmed": 117710,
-            "recovered": 30513,
-            "deaths": 10935,
-            "active": 76262,
-            "iso2": "ES",
-            "iso3": "ESP"
-        },
-        {
-            "countryRegion": "Italy",
-            "confirmed": 115242,
-            "recovered": 18278,
-            "deaths": 13915,
-            "active": 83049,
-            "iso2": "IT",
-            "iso3": "ITA"
-        },
-        {
-            "countryRegion": "Germany",
-            "confirmed": 85903,
-            "recovered": 22440,
-            "deaths": 1122,
-            "active": 62341,
-            "iso2": "DE",
-            "iso3": "DEU"
-        }
-    ].sort((a, b) => a["deaths"] - b["deaths"])
+    countriesData: [],
+    loading: false,
+    error: ''
 }
 
 export const GlobalContext = createContext(initialState);
 
 export const GlobalProvider = ({ children }) => {
-
     const [state, dispatch] = useReducer(reducer, initialState);
+
+    useEffect(() => {
+        fetch('https://covid19.mathdro.id/api/deaths')
+            .then(response => response.json())
+            .then(data => {
+                dispatch({
+                    type: "FETCH_SUCCESS",
+                    payload: data
+                })
+            })
+            .catch(error => {
+                dispatch({
+                    type: "FETCH_ERROR",
+                })
+            })
+    }, [])
 
     //ACTIONS
     function assendingForDeaths() {
         dispatch({
-            type: "ASSENDING_DEATHS"
+            type: "ASCENDING_DEATHS"
         })
     };
 
@@ -55,6 +44,7 @@ export const GlobalProvider = ({ children }) => {
     return (
         <GlobalContext.Provider value={{
             countriesData: state.countriesData,
+            loading: state.loading,
             assendingForDeaths,
             descendingForDeaths
         }}>

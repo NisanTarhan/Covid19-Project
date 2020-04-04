@@ -20,10 +20,10 @@ const Card = styled.div`
 
 const CountryCard = ({ dataOfCountry }) => {
     const { countryRegion, deaths, iso2 } = dataOfCountry;
-    const countryCodeForFlag = iso2.toLowerCase();
+    const countryCodeForFlag = iso2?.toLowerCase();
     return (
         <Card numberOfDeaths={deaths}>
-            <img src={`https://www.countryflags.io/${countryCodeForFlag}/flat/64.png`} alt="flag" />
+            {countryCodeForFlag && <img src={`https://www.countryflags.io/${countryCodeForFlag}/flat/64.png`} alt="flag" />}
             <p>{countryRegion}</p>
             <p>Deaths: {deaths}</p>
         </Card>

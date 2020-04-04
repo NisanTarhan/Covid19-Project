@@ -12,11 +12,12 @@ const CardListLayout = styled.div`
 `
 
 const CardList = () => {
-    const { countriesData } = useContext(GlobalContext);
+    const { countriesData, loading } = useContext(GlobalContext);
+
     return (
         <CardListLayout>
-            {countriesData.map((country, index) =>
-                <CountryCard key={index} dataOfCountry={country} />)
+            {loading ? "LOADING" : countriesData?.map((country, index) =>
+                <CountryCard key={index} loading={loading} dataOfCountry={country} />)
             }
         </CardListLayout>
     )

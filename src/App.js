@@ -15,6 +15,7 @@ const AppLayout = styled.div`
 `
 
 function App() {
+
   return (
     <GlobalProvider>
       <AppLayout>
