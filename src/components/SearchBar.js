@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const SearcInput = styled.input`
@@ -6,19 +6,14 @@ const SearcInput = styled.input`
     width: 13rem;
     border: none;
     padding: 0.6rem;
-    align-self:center; 
+    align-self: center; 
 `
 
-const SearchBar = () => {
-    const [text, setText] = useState("");
-
-    const handleSearchInput = e => setText(e.target.value);
-
+const SearchBar = ({ handleSearchInput }) => {
     return (
         <SearcInput
             type="search"
-            placeholder="Search Countries"
-            value={text}
+            placeholder="Search Country"
             onChange={handleSearchInput}
         />
     )

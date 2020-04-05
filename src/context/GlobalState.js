@@ -1,6 +1,22 @@
 import React, { createContext, useReducer, useEffect } from 'react';
 import reducer from './reducer';
 
+const filterDataFromApi = (data) => {
+    return data.reduce((acc, curr) => {
+        if (curr.deaths >= 200) {
+            let newObject = {
+                countryRegion: curr.countryRegion,
+                confirmed: curr.confirmed,
+                recovered: curr.recovered,
+                deaths: curr.deaths,
+                iso2: curr.iso2
+            }
+            acc.push(newObject)
+        }
+        return acc;
+    }, [])
+}
+
 const initialState = {
     countriesData: [],
     loading: false,
@@ -12,13 +28,14 @@ export const GlobalContext = createContext(initialState);
 export const GlobalProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
+    //GETTING DATA FROM API
     useEffect(() => {
         fetch('https://covid19.mathdro.id/api/deaths')
             .then(response => response.json())
             .then(data => {
                 dispatch({
                     type: "FETCH_SUCCESS",
-                    payload: data
+                    payload: filterDataFromApi(data)
                 })
             })
             .catch(error => {
@@ -46,7 +63,7 @@ export const GlobalProvider = ({ children }) => {
             countriesData: state.countriesData,
             loading: state.loading,
             assendingForDeaths,
-            descendingForDeaths
+            descendingForDeaths,
         }}>
             {children}
         </GlobalContext.Provider>

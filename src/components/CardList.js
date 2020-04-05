@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { GlobalContext } from '../context/GlobalState';
 import CountryCard from './CountryCard';
 
 const CardListLayout = styled.div`
@@ -11,12 +10,11 @@ const CardListLayout = styled.div`
     grid-gap: 1.2rem;
 `
 
-const CardList = () => {
-    const { countriesData, loading } = useContext(GlobalContext);
+const CardList = ({ filteredCountries, loading }) => {
 
     return (
         <CardListLayout>
-            {loading ? "LOADING" : countriesData?.map((country, index) =>
+            {loading ? "LOADING" : filteredCountries?.map((country, index) =>
                 <CountryCard key={index} loading={loading} dataOfCountry={country} />)
             }
         </CardListLayout>

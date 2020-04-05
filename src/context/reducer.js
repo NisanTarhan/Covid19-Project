@@ -1,5 +1,4 @@
 export default (state, action) => {
-    console.log("action.payload:", action.payload)
     switch (action.type) {
         case "ASCENDING_DEATHS":
             return {
