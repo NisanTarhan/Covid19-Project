@@ -11,7 +11,9 @@ const AppLayout = styled.div`
   box-sizing: border-box;
   width: 100vw;
   height: 100vh;
-  background: black;
+  background: #fceabb; 
+  background: -webkit-linear-gradient(to right, #f8b500, #fceabb);  
+  background: linear-gradient(to right, #f8b500, #fceabb); 
 `
 
 function App() {

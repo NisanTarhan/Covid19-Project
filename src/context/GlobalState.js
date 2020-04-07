@@ -2,9 +2,10 @@ import React, { createContext, useReducer, useEffect } from 'react';
 import reducer from './reducer';
 
 const filterDataFromApi = (data) => {
-    return data.reduce((acc, curr) => {
+    return data.reduce((acc, curr, id) => {
         if (curr.deaths >= 200) {
             let newObject = {
+                id: id,
                 countryRegion: curr.countryRegion,
                 confirmed: curr.confirmed,
                 recovered: curr.recovered,
@@ -15,6 +16,13 @@ const filterDataFromApi = (data) => {
         }
         return acc;
     }, [])
+}
+
+const loadFunctionWithData = (countriesData) => {
+    function getDetailOfCountry(id) {
+        return countriesData.filter(country => country.id == id)[0];
+    }
+    return getDetailOfCountry;
 }
 
 const initialState = {
@@ -64,6 +72,7 @@ export const GlobalProvider = ({ children }) => {
             loading: state.loading,
             assendingForDeaths,
             descendingForDeaths,
+            getDetailOfCountry: loadFunctionWithData(state.countriesData)
         }}>
             {children}
         </GlobalContext.Provider>

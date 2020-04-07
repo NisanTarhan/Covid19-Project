@@ -14,8 +14,8 @@ const CardList = ({ filteredCountries, loading }) => {
 
     return (
         <CardListLayout>
-            {loading ? "LOADING" : filteredCountries?.map((country, index) =>
-                <CountryCard key={index} loading={loading} dataOfCountry={country} />)
+            {loading ? "LOADING" : filteredCountries?.map((country) =>
+                <CountryCard key={country.id} loading={loading} dataOfCountry={country} />)
             }
         </CardListLayout>
     )

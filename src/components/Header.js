@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 const HeaderLayout = styled.div`
   grid-column: 1/-1;
-  background: orange;
+  background: linear-gradient(#434343 , #000000);
+  color: #F2D32D;
   text-align: center;
   font-family: 'Permanent Marker', cursive;
 `
