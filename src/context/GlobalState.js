@@ -1,22 +1,6 @@
 import React, { createContext, useReducer, useEffect } from 'react';
+import { assendingForDeaths, descendingForDeaths, fetchAndFilterData, errorDuringFetch } from './actions'
 import reducer from './reducer';
-
-const filterDataFromApi = (data) => {
-    return data.reduce((acc, curr, id) => {
-        if (curr.deaths >= 200) {
-            let newObject = {
-                id: id,
-                countryRegion: curr.countryRegion,
-                confirmed: curr.confirmed,
-                recovered: curr.recovered,
-                deaths: curr.deaths,
-                iso2: curr.iso2
-            }
-            acc.push(newObject)
-        }
-        return acc;
-    }, [])
-}
 
 const loadFunctionWithData = (countriesData) => {
     function getDetailOfCountry(id) {
@@ -40,41 +24,16 @@ export const GlobalProvider = ({ children }) => {
     useEffect(() => {
         fetch('https://covid19.mathdro.id/api/deaths')
             .then(response => response.json())
-            .then(data => {
-                dispatch({
-                    type: "FETCH_SUCCESS",
-                    payload: filterDataFromApi(data)
-                })
-            })
-            .catch(error => {
-                dispatch({
-                    type: "FETCH_ERROR",
-                    payload: error
-                })
-            })
+            .then(data => dispatch(fetchAndFilterData(data)))
+            .catch(error => dispatch(errorDuringFetch(error)))
     }, [])
-
-    //ACTIONS
-    function assendingForDeaths() {
-        dispatch({
-            type: "ASCENDING_DEATHS",
-            payload: { ...state }
-        })
-    };
-
-    function descendingForDeaths() {
-        dispatch({
-            type: "DESCENDING_DEATHS",
-            payload: { ...state }
-        })
-    };
 
     return (
         <GlobalContext.Provider value={{
             countriesData: state.countriesData,
             loading: state.loading,
-            assendingForDeaths,
-            descendingForDeaths,
+            assendingForDeaths: () => dispatch(assendingForDeaths(state)),
+            descendingForDeaths: () => dispatch(descendingForDeaths(state)),
             getDetailOfCountry: loadFunctionWithData(state.countriesData)
         }}>
             {children}

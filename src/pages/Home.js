@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
-import { CardList, SearchBar, Dropdown } from '../components';
+import { CardContainer, SearchBar, Dropdown } from '../components';
 import { GlobalContext } from '../context/GlobalState';
 
 const HomeLayout = styled.div`
@@ -30,7 +30,7 @@ const Home = () => {
                 <SearchBar handleSearchInput={handleSearchInput} />
                 <Dropdown />
             </div>
-            <CardList filteredCountries={filteredCountries} loading={loading} />
+            <CardContainer filteredCountries={filteredCountries} loading={loading} />
         </HomeLayout>
     );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { string, number } from 'prop-types';
 import styled from 'styled-components';
 import { useHistory } from "react-router-dom";
 
@@ -43,6 +44,21 @@ const Button = styled.button`
 `
 
 const DetailSheet = ({ countryRegion, flagCode, confirmed, recovered, deaths }) => {
+    DetailSheet.propTypes = {
+        countryRegion: string,
+        flagCode: string,
+        confirmed: number,
+        recovered: number,
+        deaths: number,
+    }
+
+    DetailSheet.defaultProps = {
+        countryRegion: "Unknown",
+        confirmed: 0,
+        recovered: 0,
+        deaths: 0
+    }
+
     let history = useHistory();
     return (
         <DetailSheetLayout>
