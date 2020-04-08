@@ -49,6 +49,7 @@ export const GlobalProvider = ({ children }) => {
             .catch(error => {
                 dispatch({
                     type: "FETCH_ERROR",
+                    payload: error
                 })
             })
     }, [])
@@ -56,13 +57,15 @@ export const GlobalProvider = ({ children }) => {
     //ACTIONS
     function assendingForDeaths() {
         dispatch({
-            type: "ASCENDING_DEATHS"
+            type: "ASCENDING_DEATHS",
+            payload: { ...state }
         })
     };
 
     function descendingForDeaths() {
         dispatch({
-            type: "DESCENDING_DEATHS"
+            type: "DESCENDING_DEATHS",
+            payload: { ...state }
         })
     };
 

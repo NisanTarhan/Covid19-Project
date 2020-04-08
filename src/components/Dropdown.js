@@ -3,12 +3,13 @@ import styled from 'styled-components';
 import { GlobalContext } from '../context/GlobalState';
 
 const Select = styled.select`
-  width: 6rem;
-  height: 2.1rem;
+  width: 7rem;
+  height: 3rem;
   background: white;
   color: gray;
   padding-left: 0.3rem;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  font-family: 'Bree Serif', serif;
   border: none;
   margin: 2rem;
 

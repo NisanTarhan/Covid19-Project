@@ -4,7 +4,9 @@ import { CardList, SearchBar, Dropdown } from '../components';
 import { GlobalContext } from '../context/GlobalState';
 
 const HomeLayout = styled.div`
-    width: 100vw;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #f8b500, #fceabb); 
 `
 
 const Home = () => {

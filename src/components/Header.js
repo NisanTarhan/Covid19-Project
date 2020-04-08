@@ -6,7 +6,7 @@ const HeaderLayout = styled.div`
   background: linear-gradient(#434343 , #000000);
   color: #F2D32D;
   text-align: center;
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Righteous', cursive;
 `
 
 const Header = () => {

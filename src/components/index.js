@@ -1,9 +1,11 @@
 import Header from './Header';
-import Main from './Main';
+import Routes from './Routes';
 import Footer from './Footer';
 import Dropdown from './Dropdown';
 import SearchBar from './SearchBar';
 import CountryCard from './CountryCard';
 import CardList from './CardList';
+import DetailSheet from './DetailSheet';
+import Spinner from './Spinner';
 
-export { Header, Main, Footer, SearchBar, Dropdown, CountryCard, CardList };
+export { Header, Routes, Footer, SearchBar, Dropdown, CountryCard, CardList, DetailSheet, Spinner };

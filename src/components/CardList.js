@@ -4,9 +4,9 @@ import CountryCard from './CountryCard';
 
 const CardListLayout = styled.div`
     width: 88vw;
-    margin: 1rem auto;
+    margin: 1.2rem auto;
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(10rem, 1fr));
+    grid-template-columns: repeat(auto-fit,minmax(13rem, 1fr));
     grid-gap: 1.2rem;
 `
 

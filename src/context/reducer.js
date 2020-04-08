@@ -3,13 +3,13 @@ export default (state, action) => {
         case "ASCENDING_DEATHS":
             return {
                 ...state,
-                countriesData: state.countriesData.sort((a, b) => a["deaths"] - b["deaths"])
+                countriesData: action.payload.countriesData.sort((a, b) => a["deaths"] - b["deaths"])
             }
 
         case "DESCENDING_DEATHS":
             return {
                 ...state,
-                countriesData: state.countriesData.sort((a, b) => b["deaths"] - a["deaths"])
+                countriesData: action.payload.countriesData.sort((a, b) => b["deaths"] - a["deaths"])
             }
 
         case "FETCH_SUCCESS":
@@ -23,7 +23,7 @@ export default (state, action) => {
             return {
                 ...state,
                 loading: true,
-                error: "ERORR!"
+                error: action.payload
             }
 
         default:
