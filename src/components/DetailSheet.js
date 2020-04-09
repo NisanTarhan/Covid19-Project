@@ -11,13 +11,16 @@ const DetailSheetLayout = styled.div`
     grid-row: 2 / 3;
     position: relative;
     border-radius: 0.7rem;
-    background-image: ${props => props.primary.bg};
+    background-image: ${props => props.tertiary.bg};
+    color: ${props => props.tertiary.text};
     box-shadow: 6px 9px 34px 0px rgba(0,0,0,0.75);
     text-align: center;
 `
 
-const Text = styled.p`
-    color: ${props => props.primary.text};
+const Text = styled.p`   
+    &:hover{
+        color:#FFFF;
+    }
 `
 
 const ImageLayout = styled.div`
@@ -31,7 +34,7 @@ const Button = styled.button`
     width: 3.8rem;
     height: 3.8rem;
     border-radius: 50%;
-    background: ${props => props.primary.bg};
+    background: ${props => props.tertiary.bg};
     color: #FFF;
     cursor: pointer;
     margin-top: 1rem;
@@ -63,7 +66,7 @@ const DetailSheet = ({ countryRegion, flagCode, confirmed, recovered, deaths }) 
     let history = useHistory();
     return (
         <DetailSheetLayout primary={primary} tertiary={tertiary}>
-            <Button primary={primary} onClick={() => history.goBack()}>&#8249;</Button>
+            <Button tertiary={tertiary} onClick={() => history.goBack()}>&#8249;</Button>
             {flagCode &&
                 <ImageLayout>
                     <img
@@ -72,10 +75,10 @@ const DetailSheet = ({ countryRegion, flagCode, confirmed, recovered, deaths }) 
                 </ImageLayout>
             }
 
-            <Text primary={primary}>{countryRegion}</Text>
-            <Text primary={primary}>Confirmed: {confirmed}</Text>
-            <Text primary={primary}>Recovered: {recovered}</Text>
-            <Text primary={primary}>Deaths: {deaths}</Text>
+            <Text>{countryRegion}</Text>
+            <Text>Confirmed: {confirmed}</Text>
+            <Text>Recovered: {recovered}</Text>
+            <Text>Deaths: {deaths}</Text>
         </DetailSheetLayout>
     )
 }

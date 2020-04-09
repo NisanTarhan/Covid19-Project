@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Header, Routes, Footer } from './components'
 import { GlobalProvider } from './context/GlobalState';
+import { secondary } from './res/colors';
 
 const AppLayout = styled.div`
   display: grid;
@@ -11,13 +12,14 @@ const AppLayout = styled.div`
   box-sizing: border-box;
   width: 100vw;
   height: 100vh;
+  background: ${props => props.secondary.bg}
 `
 
 function App() {
 
   return (
     <GlobalProvider>
-      <AppLayout>
+      <AppLayout secondary={secondary}>
         <Header />
         <Routes />
         <Footer />

@@ -15,10 +15,12 @@ const CountryCard = styled.div`
     border: 1px solid #008CBA;
     border-radius: 0.7rem;
     transition: transform 0.25s ease-out;
+    font-size: 1.1rem;
     font-family: ${props => props.font.primary};
     &:hover {
         transform: scale(1.05);
-        background-image: ${props => props.tertiary.hvr};
+        background-image: ${props => props.tertiary.hvr.bg};
+        color:${props => props.tertiary.hvr.text};;
     }
 `
 

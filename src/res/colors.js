@@ -1,16 +1,20 @@
 const primary = {
     bg: "linear-gradient(#434343, #000000)",
-    text: "#F2D32D"
+    text: "#E9E9E9"
 }
 
 const secondary = {
-    bg: "linear-gradient(to right, #f8b500, #fceabb)"
+    bg: "linear-gradient(to right, #f8b500, #fceabb)",
+    text: "#F2D32D"
 }
 
 const tertiary = {
-    bg: "linear-gradient(to right, #243949 0%, #517fa4 100%)",
-    hvr: "linear-gradient(to right, #4facfe 0%, #00f2fe 100%)"
+    bg: "linear-gradient(147deg, #d7d7d7 0%, #353535 74%);",
+    hvr: {
+        bg: "linear-gradient(to right, #4facfe 0%, #00f2fe 100%)",
+        text: "#0d1667"
+    },
+    text: "#E3E3E3"
 }
-
 
 export { primary, secondary, tertiary }
