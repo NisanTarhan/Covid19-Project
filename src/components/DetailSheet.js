@@ -2,6 +2,7 @@ import React from 'react';
 import { string, number } from 'prop-types';
 import styled from 'styled-components';
 import { useHistory } from "react-router-dom";
+import { primary, tertiary } from '../res/colors'
 
 const DetailSheetLayout = styled.div`
     display: grid;
@@ -10,13 +11,13 @@ const DetailSheetLayout = styled.div`
     grid-row: 2 / 3;
     position: relative;
     border-radius: 0.7rem;
-    background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+    background-image: ${props => props.primary.bg};
     box-shadow: 6px 9px 34px 0px rgba(0,0,0,0.75);
     text-align: center;
 `
 
 const Text = styled.p`
-
+    color: ${props => props.primary.text};
 `
 
 const ImageLayout = styled.div`
@@ -27,15 +28,15 @@ const ImageLayout = styled.div`
 
 const Button = styled.button`
     position: absolute;
-    width: 60px;
-    height: 60px;
+    width: 3.8rem;
+    height: 3.8rem;
     border-radius: 50%;
-    background: linear-gradient(#434343 , #000000);
+    background: ${props => props.primary.bg};
     color: #FFF;
     cursor: pointer;
     margin-top: 1rem;
     margin-left: 1rem;
-    padding-bottom: 7px;
+    padding-bottom: 0.4rem;
     font-size: 2rem;
 
     &:hover {
@@ -61,8 +62,8 @@ const DetailSheet = ({ countryRegion, flagCode, confirmed, recovered, deaths }) 
 
     let history = useHistory();
     return (
-        <DetailSheetLayout>
-            <Button onClick={() => history.goBack()}>&#8249;</Button>
+        <DetailSheetLayout primary={primary} tertiary={tertiary}>
+            <Button primary={primary} onClick={() => history.goBack()}>&#8249;</Button>
             {flagCode &&
                 <ImageLayout>
                     <img
@@ -71,10 +72,10 @@ const DetailSheet = ({ countryRegion, flagCode, confirmed, recovered, deaths }) 
                 </ImageLayout>
             }
 
-            <Text>{countryRegion}</Text>
-            <Text>Confirmed: {confirmed}</Text>
-            <Text>Recovered: {recovered}</Text>
-            <Text>Deaths: {deaths}</Text>
+            <Text primary={primary}>{countryRegion}</Text>
+            <Text primary={primary}>Confirmed: {confirmed}</Text>
+            <Text primary={primary}>Recovered: {recovered}</Text>
+            <Text primary={primary}>Deaths: {deaths}</Text>
         </DetailSheetLayout>
     )
 }

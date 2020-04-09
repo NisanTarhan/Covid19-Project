@@ -1,15 +1,18 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { GlobalContext } from '../context/GlobalState';
+import { font } from '../res/fonts';
 
 const Select = styled.select`
   width: 7rem;
   height: 3rem;
   background: white;
+  box-shadow: 10px 10px 13px -2px rgba(0,0,0,0.29);
   color: gray;
+  border-radius: 10px;
   padding-left: 0.3rem;
   font-size: 0.9rem;
-  font-family: 'Bree Serif', serif;
+  font-family: ${props => props.font.primary};
   border: none;
   margin: 2rem;
 
@@ -27,7 +30,6 @@ const Dropdown = () => {
   const { assendingForDeaths, descendingForDeaths } = useContext(GlobalContext)
 
   const handleSelectChange = e => {
-    console.log(e.target.value)
     if (e.target.value === "descending") {
       descendingForDeaths();
     } else {
@@ -38,9 +40,10 @@ const Dropdown = () => {
   return (
     <Select
       onChange={handleSelectChange}
+      font={font}
     >
-      <option value="ascending">Ascending</option>
       <option value="descending">Descending</option>
+      <option value="ascending">Ascending</option>
     </Select>
   )
 }

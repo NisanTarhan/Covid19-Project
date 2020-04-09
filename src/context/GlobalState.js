@@ -1,6 +1,7 @@
 import React, { createContext, useReducer, useEffect } from 'react';
 import { assendingForDeaths, descendingForDeaths, fetchAndFilterData, errorDuringFetch } from './actions'
 import reducer from './reducer';
+import { element } from 'prop-types';
 
 const loadFunctionWithData = (countriesData) => {
     function getDetailOfCountry(id) {
@@ -18,6 +19,9 @@ const initialState = {
 export const GlobalContext = createContext(initialState);
 
 export const GlobalProvider = ({ children }) => {
+    GlobalProvider.propTypes = {
+        children: element
+    }
     const [state, dispatch] = useReducer(reducer, initialState);
 
     //GETTING DATA FROM API

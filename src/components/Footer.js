@@ -1,18 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
+import { primary } from '../res/colors'
+import { font } from '../res/fonts';
 
 const FooterLayout = styled.div`
   grid-column: 1/-1;
-  font-family: 'Permanent Marker', cursive;
-  background: linear-gradient(#434343 , #000000);
-  color: #F2D32D;
+  background: ${props => props.primary.bg};
+  color: ${props => props.primary.text};
   text-align: center;
-  font-family: 'Righteous', cursive;
+  font-family: ${props => props.font.secondary};
 `
 
 const Footer = () => {
     return (
-        <FooterLayout>
+        <FooterLayout primary={primary} font={font}>
             <h2>Pankod Challenge</h2>
         </FooterLayout>
     );

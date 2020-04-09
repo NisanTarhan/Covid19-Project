@@ -25,11 +25,11 @@ const SpinnerItem = styled.div`
 `;
 
 const Spinner = () => {
-    return (
-        <SpinnerLayout>
-            <SpinnerItem />
-        </SpinnerLayout>
-    );
+  return (
+    <SpinnerLayout>
+      <SpinnerItem />
+    </SpinnerLayout>
+  );
 };
 
 export default Spinner;

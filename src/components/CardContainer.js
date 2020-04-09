@@ -1,7 +1,7 @@
 import React from 'react';
 import { bool, array } from 'prop-types';
 import styled from 'styled-components';
-import { Card, Spinner } from '.';
+import { Card, Spinner } from '../components';
 
 const CardListLayout = styled.div`
     width: 88vw;
