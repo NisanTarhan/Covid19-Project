@@ -29,6 +29,7 @@ const Detail = ({ match }) => {
                 confirmed={detailData?.confirmed}
                 recovered={detailData?.recovered}
                 deaths={detailData?.deaths}
+                deathRate={detailData?.deathRate}
             />
         </DetailLayout>
     )

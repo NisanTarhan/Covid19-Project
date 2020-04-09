@@ -19,7 +19,7 @@ const CardContainer = ({ filteredCountries, loading }) => {
     return (
         <CardListLayout>
             {loading ? <Spinner /> : filteredCountries?.map((country) =>
-                <Card key={country.id} loading={loading} dataOfCountry={country} />)
+                <Card key={country.id} loading={loading} countryInfo={country} />)
             }
         </CardListLayout>
     )

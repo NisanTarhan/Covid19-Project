@@ -47,20 +47,22 @@ const Button = styled.button`
     }
 `
 
-const DetailSheet = ({ countryRegion, flagCode, confirmed, recovered, deaths }) => {
+const DetailSheet = ({ countryRegion, flagCode, confirmed, recovered, deaths, deathRate }) => {
     DetailSheet.propTypes = {
         countryRegion: string,
         flagCode: string,
         confirmed: number,
         recovered: number,
         deaths: number,
+        deathRate: number
     }
 
     DetailSheet.defaultProps = {
         countryRegion: "Unknown",
         confirmed: 0,
         recovered: 0,
-        deaths: 0
+        deaths: 0,
+        deathRate: 0
     }
 
     let history = useHistory();
@@ -79,6 +81,7 @@ const DetailSheet = ({ countryRegion, flagCode, confirmed, recovered, deaths }) 
             <Text>Confirmed: {confirmed}</Text>
             <Text>Recovered: {recovered}</Text>
             <Text>Deaths: {deaths}</Text>
+            <Text>DeathRate: {deathRate}%</Text>
         </DetailSheetLayout>
     )
 }

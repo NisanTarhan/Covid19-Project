@@ -24,7 +24,8 @@ export function fetchAndFilterData(data) {
                     confirmed: curr.confirmed,
                     recovered: curr.recovered,
                     deaths: curr.deaths,
-                    iso2: curr.iso2
+                    iso2: curr.iso2,
+                    deathRate: `${(curr.deaths * 100 / curr.confirmed).toFixed(2)}`
                 }
                 acc.push(newObject)
             }

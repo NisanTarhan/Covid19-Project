@@ -24,7 +24,7 @@ const CountryCard = styled.div`
     }
 `
 
-const Card = ({ dataOfCountry }) => {
+const Card = ({ countryInfo }) => {
     Card.propTypes = {
         dataOfCountry: shape({
             id: number.isRequired,
@@ -40,7 +40,7 @@ const Card = ({ dataOfCountry }) => {
         deaths: 0
     }
 
-    const { countryRegion, deaths, iso2, id } = dataOfCountry;
+    const { countryRegion, deaths, iso2, id } = countryInfo;
     const countryCodeForFlag = iso2?.toLowerCase();
     return (
         <Link to={`/detail/${id}`} style={{ textDecoration: 'none' }}>
@@ -48,6 +48,7 @@ const Card = ({ dataOfCountry }) => {
                 {countryCodeForFlag && <img src={`https://www.countryflags.io/${countryCodeForFlag}/flat/64.png`} alt="flag" />}
                 <p>{countryRegion}</p>
                 <p>Deaths: {deaths}</p>
+
             </CountryCard>
         </Link>
     )
