@@ -12,10 +12,10 @@ const HeaderLayout = styled.div`
   color: ${props => props.secondary.text};
   text-align: center;
   font-family: ${props => props.font.secondary};
-  font-size: 1.2vw;
+  font-size: 1vw;
 
   @media (max-width: 1600px) {
-     font-size: 1.2rem;
+     font-size: 1rem;
 }   
 `
 
