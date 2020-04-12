@@ -12,7 +12,11 @@ const FooterLayout = styled.div`
   color: ${props => props.secondary.text};
   text-align: center;
   font-family: ${props => props.font.secondary};
-  font-size: 0.7vw;
+  font-size: 0.9vw;
+
+@media (max-width: 1600px) {
+     font-size: 0.9rem;
+}   
 `
 
 const Footer = () => {
