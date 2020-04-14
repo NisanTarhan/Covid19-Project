@@ -1,4 +1,4 @@
-### PREVIEW
+### COVID19 PROJECT PREVIEW
 ![](https://github.com/NisanTarhan/Covid19-Project/blob/master/src/assets/covid-project.gif)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
