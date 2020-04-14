@@ -22,7 +22,7 @@ const FooterLayout = styled.div`
 const Footer = () => {
     return (
         <FooterLayout primary={primary} secondary={secondary} font={font}>
-            <h2>Pankod Challenge</h2>
+            <h2>Created By Nisan Ercan Tarhan</h2>
         </FooterLayout>
     );
 }
